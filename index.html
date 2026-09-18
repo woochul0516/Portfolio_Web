@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>프론트엔드 개발자 포트폴리오</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <!-- FontAwesome (아이콘용) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <!-- defer 속성으로 script 연결 -->
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+
+  <!-- Header & Navigation -->
+  <header id="header" class="header">
+    <div class="container nav-container">
+      <a href="#hero" class="logo">DevPortfolio<span>.</span></a>
+      
+      <nav id="nav-menu" class="nav-menu">
+        <ul class="nav-list">
+          <li><a href="#hero" class="nav-link">Home</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#skills" class="nav-link">Skills</a></li>
+          <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <!-- 다크 모드 토글 -->
+        <button id="theme-toggle" class="theme-toggle" aria-label="테마 전환">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+        <!-- 모바일 햄버거 버튼 -->
+        <button id="hamburger" class="hamburger" aria-label="메뉴 열기">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section id="hero" class="hero section">
+      <div class="container hero-container">
+        <p class="hero-subtitle">안녕하세요, 성장을 즐기는 개발자입니다.</p>
+        <h1 class="hero-title">Hello, I'm <span id="typing-text" class="highlight"></span></h1>
+        <p class="hero-description">웹 기술의 기본을 깊게 탐구하며 사용자 중심의 인터랙티브 웹을 구현합니다.</p>
+        <div class="hero-buttons">
+          <a href="#projects" class="btn btn-primary">프로젝트 보기</a>
+          <a href="#contact" class="btn btn-outline">연락하기</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about section fade-in-section">
+      <div class="container">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-content">
+          <div class="about-img-wrapper">
+            <img src="images/profile.jpg" alt="개발자 정우철 프로필 사진" class="about-img" onerror="this.src='https://via.placeholder.com/300x300?text=Profile'" />
+          </div>
+          <div class="about-text">
+            <h3>원리와 기본기에 집중하며 꾸준히 성장하는 대학생입니다.</h3>
+            <p>C언어를 통해 메모리와 자료구조 등 컴퓨터 시스템의 기본 원리를 배우고, 
+              Python으로 다양한 문제 해결과 알고리즘을 연습하고 있습니다. 
+              화려한 프레임워크를 바로 사용하기보다 웹의 기본인 HTML 구조를 다지고, 
+              GitHub로 기록하며 꾸준히 학습하는 과정을 즐깁니다.</p>
+            <ul class="about-info">
+              <li><strong>이름:</strong> 정우철</li>
+              <li><strong>전공:</strong> 컴퓨터공학과</li>
+              <li><strong>이메일:</strong> dncjf55252@gmail.com</li>
+              <li><strong>GitHub:</strong> github.com/woochul0516</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills section fade-in-section">
+      <div class="container">
+        <h2 class="section-title">Skills</h2>
+        <div class="skills-grid">
+          <article class="skill-card">
+            <i class="fa-brands fa-python skill-icon"></i>
+            <h3>Python</h3>
+            <p>데이터 처리, 알고리즘 구현, 효율적인 자동화 스크립트 작성</p>
+          </article>
+          <article class="skill-card">
+            <i class="fa-brands fa-c skill-icon"></i>
+            <h3>C언어</h3>
+            <p>메모리 관리, 구조체 활용, 저수준 컴퓨팅 및 기본 자료구조 구현</p>
+          </article>
+          <article class="skill-card">
+            <i class="fa-brands fa-html5 skill-icon"></i>
+            <h3>HTML5</h3>
+            <p>시맨틱 마크업, 웹 접근성 준수, 구조화된 문서 레이아웃 설계</p>
+          </article>
+          <article class="skill-card">
+            <i class="fa-brands fa-git-alt skill-icon"></i>
+            <h3>Git & GitHub</h3>
+            <p>Git 버전 관리, 브랜치 전략 활용, GitHub Pages 서비스 배포</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section (GitHub API) -->
+    <section id="projects" class="projects section fade-in-section">
+      <div class="container">
+        <h2 class="section-title">Projects</h2>
+        
+        <!-- 언어 필터링 버튼 (보너스 과제) -->
+        <div id="filter-buttons" class="filter-buttons">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="Python">Python</button>
+          <button class="filter-btn" data-filter="JavaScript">JavaScript</button>
+        </div>
+
+        <!-- 동적 API 렌더링 컨테이너 -->
+        <div id="projects-container" class="projects-grid">
+          <!-- JS에서 상태(로딩/성공/에러/빈값)에 따라 동적 생성됨 -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact section fade-in-section">
+      <div class="container">
+        <h2 class="section-title">Contact</h2>
+        <form id="contact-form" class="contact-form" novalidate>
+          <div class="form-group">
+            <label for="username">이름</label>
+            <input type="text" id="username" name="username" placeholder="이름을 입력하세요" />
+            <span class="error-msg" id="name-error"></span>
+          </div>
+          <div class="form-group">
+            <label for="email">이메일</label>
+            <input type="email" id="email" name="email" placeholder="example@email.com" />
+            <span class="error-msg" id="email-error"></span>
+          </div>
+          <div class="form-group">
+            <label for="message">메시지</label>
+            <textarea id="message" name="message" rows="5" placeholder="메시지를 입력하세요"></textarea>
+            <span class="error-msg" id="message-error"></span>
+          </div>
+          <button type="submit" class="btn btn-primary btn-submit">보내기</button>
+          <div id="form-success" class="form-success"></div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <p>&copy; 2026 정우철. All rights reserved.</p>
+      <div class="social-links">
+        <a href="https://github.com" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+        <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll To Top Button -->
+  <button id="scroll-top" class="scroll-top" aria-label="맨 위로 이동">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+</body>
+</html>
